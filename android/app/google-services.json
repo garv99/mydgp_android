@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "838612429733",
+    "project_id": "my-dgp",
+    "storage_bucket": "my-dgp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:838612429733:android:90d7974d6b17f576b2964c",
+        "android_client_info": {
+          "package_name": "com.my_dgp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDW8bH161RV4aGvBmm4bomV4DyC2ZF2Sbo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
