@@ -24,7 +24,7 @@ export default function Login({navigation, route}) {
   useEffect(() => {
     if (isAuthenticated) {
       showToast('success', 'Login Successful');
-      navigation.reset({index: 1, routes: [{name: RouteNames.HOME}]});
+      navigation.reset({index: 1, routes: [{name: RouteNames.DRAWERS.HOME}]});
     }
 
     if (error) {

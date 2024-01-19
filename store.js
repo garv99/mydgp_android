@@ -1,12 +1,38 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
-import UserReducer from './src/reducers/UserReducer';
-import ServiceReducer from './src/reducers/ServiceReducer';
+import {UserReducer, updateUserReducer} from './src/reducers/UserReducer';
+import {
+  bookingRequestsReducer,
+  updateBookingRequestStatusReducer,
+} from './src/reducers/BookingRequestReducer';
+import {serviceReducer} from './src/reducers/ServiceReducer';
+import {applyLeaveReducer, getLeavesReducer} from './src/reducers/LeaveReducer';
+import {
+  completedBookingsReducer,
+  currentBookingsReducer,
+  futureBookingsReducer,
+  updateBookingStatusReducer,
+} from './src/reducers/BookingsReducer';
+import { redeemReducer } from './src/reducers/RedeemReducer';
 
 const reducer = combineReducers({
   user: UserReducer,
+  profile: updateUserReducer,
 
-  services: ServiceReducer
+  services: serviceReducer,
+
+  bookingRequests: bookingRequestsReducer,
+  bookingRequest: updateBookingRequestStatusReducer,
+
+  leave: applyLeaveReducer,
+  allLeaves: getLeavesReducer,
+
+  updateBookingStatus: updateBookingStatusReducer,
+  completedBookings: completedBookingsReducer,
+  currentBookings: currentBookingsReducer,
+  futureBookings: futureBookingsReducer,
+
+  redeem: redeemReducer
 });
 
 const initialState = {};

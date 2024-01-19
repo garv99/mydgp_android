@@ -37,7 +37,7 @@ export default function LoginOtp({navigation}) {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigation.reset({index: 1, routes: [{name: RouteNames.HOME}]});
+      navigation.reset({index: 1, routes: [{name: RouteNames.DRAWERS.HOME}]});
     }
 
     if (error) {

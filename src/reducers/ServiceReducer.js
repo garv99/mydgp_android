@@ -1,6 +1,6 @@
 import { GET_ALL_SERVICES_FAIL, GET_ALL_SERVICES_REQUESTS, GET_ALL_SERVICES_SUCCESS } from "../constants/ServiceConstants";
 
-export const ServiceReducer = (state = {services: []}, action) => {
+export const serviceReducer = (state = {services: []}, action) => {
   switch(action.type) {
     case GET_ALL_SERVICES_REQUESTS:
       return {
@@ -26,5 +26,3 @@ export const ServiceReducer = (state = {services: []}, action) => {
       }
   }
 }
-
-export default ServiceReducer

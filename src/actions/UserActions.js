@@ -11,12 +11,18 @@ import {
   LOGIN_VERIFY_SUCCESS,
   LOGOUT_FAIL,
   LOGOUT_SUCCESS,
+  ON_DUTY_TOGGLE_FAIL,
+  ON_DUTY_TOGGLE_REQUEST,
+  ON_DUTY_TOGGLE_SUCCESS,
   REGISTER_FAIL,
   REGISTER_REQUEST,
   REGISTER_SUCCESS,
   REGISTER_VERIFY_FAIL,
   REGISTER_VERIFY_REQUEST,
   REGISTER_VERIFY_SUCCESS,
+  UPDATE_PROFILE_FAIL,
+  UPDATE_PROFILE_REQUEST,
+  UPDATE_PROFILE_SUCCESS,
 } from '../constants/UserConstants';
 import axiosInstance, {BASE_URL} from '../Axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -131,6 +137,48 @@ export const logout = () => async dispatch => {
   } catch (error) {
     dispatch({
       type: LOGOUT_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
+
+// Update User Details
+export const updateUserDetails = userData => async dispatch => {
+  try {
+    dispatch({type: UPDATE_PROFILE_REQUEST});
+
+    const config = {'Content-Type': 'application/json'};
+    const {data} = await axiosInstance.put(
+      `${BASE_URL}/api/v1/me/update`,
+      userData,
+      config,
+    );
+
+    dispatch({type: UPDATE_PROFILE_SUCCESS, payload: data.success});
+  } catch (error) {
+    dispatch({
+      type: UPDATE_PROFILE_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
+
+// toggle on-duty status
+export const toggleDutyStatus = status => async dispatch => {
+  try {
+    dispatch({type: ON_DUTY_TOGGLE_REQUEST});
+
+    const config = {'Content-Type': 'application/json'};
+    const {data} = await axiosInstance.put(
+      `${BASE_URL}/api/v1/me/update_status`,
+      {status},
+      config,
+    );
+    
+    dispatch({type: ON_DUTY_TOGGLE_SUCCESS, payload: data.success});
+  } catch (error) {
+    dispatch({
+      type: ON_DUTY_TOGGLE_FAIL,
       payload: error.response.data.message,
     });
   }

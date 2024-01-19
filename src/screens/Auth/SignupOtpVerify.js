@@ -24,7 +24,7 @@ export default function SignupOtpVerify({navigation, route}) {
   useEffect(() => {
     if (isAuthenticated) {
       showToast('success', 'OTP Verified');
-      navigation.reset({index: 1, routes: [{name: RouteNames.HOME}]});
+      navigation.reset({index: 1, routes: [{name: RouteNames.DRAWERS.HOME}]});
     }
 
     if (error) {

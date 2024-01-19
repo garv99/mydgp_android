@@ -4,7 +4,7 @@ import { deviceHeight } from '../helpers/Dimensions';
 
 const ComponentStyles = StyleSheet.create({
   inputLabel: {
-    color: Colors.GRAY,
+    color: Colors.BLACK,
     fontSize: 16,
     fontWeight: '500',
     marginBottom: 5,
@@ -68,6 +68,45 @@ const ComponentStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  bookingRequestHeading: {
+    fontSize: 17,
+    fontWeight: "700",
+    marginTop: 7,
+    marginBottom: 3
+  },
+  cardContainer: {
+    elevation: 7,
+    borderRadius: 10,
+    backgroundColor: Colors.WHITE,
+    marginVertical: 5,
+    paddingVertical: 7,
+  },
+
+  // flex styles
+  horizontalAlign: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: "center",
+    flexWrap: 'wrap'
+  },
+  horizontalBetweenAlgin: {
+    display: 'flex',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: 'center'
+  },
+  horizontalEvenlyAlgin: {
+    display: 'flex',
+    flexDirection: "row",
+    justifyContent: 'space-evenly',
+    alignItems: 'center'
+  },
+
+  // general styles
+  link: {
+    color: Colors.BLUE,
+    fontWeight: "bold"
+  }
 });
 
 export default ComponentStyles;

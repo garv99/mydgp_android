@@ -13,9 +13,9 @@ const Splash = ({navigation}) => {
     let routeName = '';
 
     if (isAuthenticated) {
-      routeName = RouteNames.HOME;
+      routeName = RouteNames.DRAWERS.HOME;
     } else {
-      routeName = RouteNames.AUTH.SIGNUP;
+      routeName = RouteNames.AUTH.LOGINOTP;
     }
 
     setTimeout(() => {
