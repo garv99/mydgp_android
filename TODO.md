@@ -1,0 +1,3 @@
+- [x] on-duty jaate hi animation/video.
+- [ ] Assignment to constant variable error on redeem screen
+- [ ] off-duty nhi ho raha.
