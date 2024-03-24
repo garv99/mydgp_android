@@ -1,23 +1,25 @@
-import {View, Image} from 'react-native';
-import React, {useLayoutEffect} from 'react';
-import {useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
-import {Text} from 'react-native';
-import {deviceHeight, deviceWidth} from '../helpers/Dimensions';
+import { View, Image } from 'react-native';
+import React, { useLayoutEffect } from 'react';
+import { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { Text } from 'react-native';
+import { deviceHeight, deviceWidth } from '../helpers/Dimensions';
 import ToggleSwitch from '../components/ToggleSwitch';
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Enums from '../helpers/Enums';
-import {toggleDutyStatus} from '../actions/UserActions';
+import { toggleDutyStatus } from '../actions/UserActions';
 import BookingRequests from './BookingRequests';
 import Video from 'react-native-video';
+import CompleteProfileModal from '../components/CompleteProfileModal/CompleteProfileModal';
 
 export default function Home() {
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  const {user} = useSelector(state => state.user);
+  const { user } = useSelector(state => state.user);
   const [onDuty, setOnDuty] = useState(
     user?.status === Enums.SERVICE_PROVIDER_STATUS.ACTIVE ? true : false,
   );
+  const [isProfileCompleted, setProfileCompleted] = useState(true);
 
   const updateDutyStatus = () => {
     setOnDuty(!onDuty);
@@ -64,7 +66,7 @@ export default function Home() {
       }}>
       <Video
         source={require('../utils/on-duty.mp4')}
-        style={{width: 220, height: 130}}
+        style={{ width: 220, height: 130 }}
         repeat={true}
       />
       {/* <Image
@@ -74,14 +76,15 @@ export default function Home() {
         // }}
       /> */}
       <>
-        <Text style={{fontSize: 25, fontWeight: 'bold', marginTop: 40}}>
+        <Text style={{ fontSize: 25, fontWeight: 'bold', marginTop: 40 }}>
           Welcome!
         </Text>
         <Text
-          style={{fontSize: 16, paddingHorizontal: 40, textAlign: 'center'}}>
+          style={{ fontSize: 16, paddingHorizontal: 40, textAlign: 'center' }}>
           Thanks for joining. Go on-duty and get started on your journey.
         </Text>
       </>
-    </View>
+      {isProfileCompleted && <CompleteProfileModal />}
+    </View >
   );
 }
