@@ -19,7 +19,7 @@ export default function Home() {
   const [onDuty, setOnDuty] = useState(
     user?.status === Enums.SERVICE_PROVIDER_STATUS.ACTIVE ? true : false,
   );
-  const [isProfileCompleted, setProfileCompleted] = useState(true);
+  const [isProfileCompleted, setProfileCompleted] = useState(false);
 
   const updateDutyStatus = () => {
     setOnDuty(!onDuty);
